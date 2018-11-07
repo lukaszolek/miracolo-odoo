@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="patients_inherited_view" model="ir.ui.view">
+    <field name="name">Add Patient Form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <!-- <field name="vat" position="after">
+          <field name="email" position="move"/>
+      </field>      
+      <field name="email" position="after">
+          <field name="mobile" position="move"/>
+      </field>       -->
+      <field name="vat" position="after">
+        <field name="interested_in" widget="many2many_tags" options="{'no_create_edit': True}"/>
+        <field name="is_patient" invisible="1"/>
+      </field>
+      <field name="company_type" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="parent_id" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="vat" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="category_id" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="phone" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="function" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="website" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="function" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="function" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <field name="function" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </field>
+      <xpath expr="//page[@name='sales_purchases']//field[@name='customer']" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </xpath>
+      <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </xpath>
+      <xpath expr="//notebook/page[1]" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </xpath>
+      <xpath expr="//group[@name='purchase']" position="attributes">
+        <attribute name="attrs">{'invisible':[('is_patient', '=', True)]}</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

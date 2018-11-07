@@ -1,0 +1,16 @@
+<?xml version="1.0"?> 
+<odoo> 
+  <act_window id="action_patients" 
+    name="Patients"
+    res_model="res.partner" 
+    view_mode="tree,form" 
+    target="current" 
+    context="{'default_is_patient': True}" 
+    domain="[('is_patient','=',True)]" 
+  />
+
+  <menuitem id="menu_patient" 
+    name="Patients" 
+    action="action_patients"
+  /> 
+</odoo>
